@@ -14,9 +14,12 @@
 		141DC50D2074CF56008E7D68 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DC50C2074CF56008E7D68 /* LoginViewController.swift */; };
 		141DC50F2074D016008E7D68 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DC50E2074D016008E7D68 /* SignupViewController.swift */; };
 		141DC5112074D1AF008E7D68 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DC5102074D1AF008E7D68 /* Extensions.swift */; };
+		141DC5132074E7DD008E7D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141DC5122074E7DC008E7D68 /* GoogleService-Info.plist */; };
+		C814EA227E976D47E5C9677B /* Pods_sampleEarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAB47E6224DC51C3A52D022 /* Pods_sampleEarlGrey.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00ED40568C74A1D53F8B1433 /* Pods-sampleEarlGrey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sampleEarlGrey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sampleEarlGrey/Pods-sampleEarlGrey.debug.xcconfig"; sourceTree = "<group>"; };
 		141DC4F72074B25C008E7D68 /* sampleEarlGrey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleEarlGrey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		141DC4FA2074B25C008E7D68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		141DC4FF2074B25C008E7D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +29,9 @@
 		141DC50C2074CF56008E7D68 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		141DC50E2074D016008E7D68 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		141DC5102074D1AF008E7D68 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		141DC5122074E7DC008E7D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ADAB47E6224DC51C3A52D022 /* Pods_sampleEarlGrey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sampleEarlGrey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B33E098259A7150973B190DE /* Pods-sampleEarlGrey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sampleEarlGrey.release.xcconfig"; path = "Pods/Target Support Files/Pods-sampleEarlGrey/Pods-sampleEarlGrey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C814EA227E976D47E5C9677B /* Pods_sampleEarlGrey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				141DC4F92074B25C008E7D68 /* sampleEarlGrey */,
 				141DC4F82074B25C008E7D68 /* Products */,
+				B555542186E12373E6D94FDC /* Pods */,
+				5ED3091305E4A743CFE71E4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +75,26 @@
 				141DC5012074B25D008E7D68 /* Assets.xcassets */,
 				141DC5032074B25D008E7D68 /* LaunchScreen.storyboard */,
 				141DC5062074B25D008E7D68 /* Info.plist */,
+				141DC5122074E7DC008E7D68 /* GoogleService-Info.plist */,
 			);
 			path = sampleEarlGrey;
+			sourceTree = "<group>";
+		};
+		5ED3091305E4A743CFE71E4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB47E6224DC51C3A52D022 /* Pods_sampleEarlGrey.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B555542186E12373E6D94FDC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00ED40568C74A1D53F8B1433 /* Pods-sampleEarlGrey.debug.xcconfig */,
+				B33E098259A7150973B190DE /* Pods-sampleEarlGrey.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 141DC5092074B25D008E7D68 /* Build configuration list for PBXNativeTarget "sampleEarlGrey" */;
 			buildPhases = (
+				00C79A6C5A370BA1D0AD88AC /* [CP] Check Pods Manifest.lock */,
 				141DC4F32074B25C008E7D68 /* Sources */,
 				141DC4F42074B25C008E7D68 /* Frameworks */,
 				141DC4F52074B25C008E7D68 /* Resources */,
+				50F3057709DCFC8B58F4B13C /* [CP] Embed Pods Frameworks */,
+				35FA3901608B116430FD9546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,12 +159,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				141DC5052074B25D008E7D68 /* LaunchScreen.storyboard in Resources */,
+				141DC5132074E7DD008E7D68 /* GoogleService-Info.plist in Resources */,
 				141DC5022074B25D008E7D68 /* Assets.xcassets in Resources */,
 				141DC5002074B25C008E7D68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00C79A6C5A370BA1D0AD88AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sampleEarlGrey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35FA3901608B116430FD9546 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sampleEarlGrey/Pods-sampleEarlGrey-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50F3057709DCFC8B58F4B13C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-sampleEarlGrey/Pods-sampleEarlGrey-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sampleEarlGrey/Pods-sampleEarlGrey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		141DC4F32074B25C008E7D68 /* Sources */ = {
@@ -286,15 +377,13 @@
 		};
 		141DC50A2074B25D008E7D68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00ED40568C74A1D53F8B1433 /* Pods-sampleEarlGrey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TWFBHPHN4Q;
 				INFOPLIST_FILE = sampleEarlGrey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blibli.sampleEarlGrey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -304,15 +393,13 @@
 		};
 		141DC50B2074B25D008E7D68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B33E098259A7150973B190DE /* Pods-sampleEarlGrey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TWFBHPHN4Q;
 				INFOPLIST_FILE = sampleEarlGrey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blibli.sampleEarlGrey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController : UIViewController {
     
@@ -102,8 +103,17 @@ class LoginViewController : UIViewController {
         guard let password = passwordTextField.text else { return }
         
         print("handle login")
-        print(email)
-        print(password)
+    
+        Auth.auth().signIn(withEmail: email, password: password) { (user, err) in
+            if let err = err {
+                print("Failed to Sign in with email:",err)
+                return
+            }
+            print("Successfully authenticated user:", user?.uid ?? "")
+            
+            /* After user logged out successfully and logged in using other user credentials. UI shows previous user details. This problem is called UI Bad State. This can be solved by resetting UI. */
+            
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

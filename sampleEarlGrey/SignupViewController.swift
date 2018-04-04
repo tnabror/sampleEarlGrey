@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController : UIViewController {
     
@@ -37,17 +38,6 @@ class SignupViewController : UIViewController {
         return textField
     }()
     
-    let userNameTextField : UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Username"
-        textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
-        textField.borderStyle = .roundedRect
-        textField.font = UIFont.systemFont(ofSize: 14)
-        
-        textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
-        return textField
-    }()
-    
     let passwordTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
@@ -74,7 +64,7 @@ class SignupViewController : UIViewController {
     }()
     
     @objc func handleTextInputChange(){
-        let isFormValid = emailTextField.text?.count ?? 0 > 0 && userNameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
+        let isFormValid = emailTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
         
         if isFormValid{
             signUpButton.isEnabled = true
@@ -91,17 +81,23 @@ class SignupViewController : UIViewController {
             return
         }
         
-        guard let username = userNameTextField.text, username.count > 0 else {
-            return
-        }
-        
         guard let password = passwordTextField.text, password.count > 0 else {
             return
         }
         
         // create user i.e signup using firebase
         print(email)
-        print(username)
+       
+        // create user i.e signup using firebase
+        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
+            
+            if let err = error{
+                print("Failed to create user:",err)
+                return
+            }
+            print("Successfully created user:",user?.uid ?? "")
+
+        }
     }
     
     let alreadyHaveAccountButton: UIButton = {
@@ -142,14 +138,14 @@ class SignupViewController : UIViewController {
     
     fileprivate func setupInputFields(){
         
-        let stackView = UIStackView(arrangedSubviews: [emailTextField,userNameTextField,passwordTextField,signUpButton])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField,passwordTextField,signUpButton])
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 10
         
         view.addSubview(stackView)
         
-        stackView.anchor(top: logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40,width: 0,height: 200)
+        stackView.anchor(top: logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40,width: 0,height: 140)
         
     }
     
