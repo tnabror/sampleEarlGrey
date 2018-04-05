@@ -4,15 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>sampleEarlGrey.xcscheme</key>
+		<key>sampleEarlGrey.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>sampleEarlGreyTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>141DC4F62074B25C008E7D68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>141DC51920761931008E7D68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
