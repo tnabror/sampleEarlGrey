@@ -8,6 +8,7 @@
 
 import UIKit
 
+// UIColor extension
 extension UIColor {
     
     static func rgb(red : CGFloat,green : CGFloat,blue : CGFloat) -> UIColor {
@@ -15,6 +16,7 @@ extension UIColor {
     }
 }
 
+// UIView extension
 extension UIView {
     
     func anchor(top : NSLayoutYAxisAnchor?, left : NSLayoutXAxisAnchor?, bottom : NSLayoutYAxisAnchor?,right : NSLayoutXAxisAnchor?,paddingTop : CGFloat,paddingLeft : CGFloat,paddingBottom : CGFloat, paddingRight : CGFloat,width : CGFloat,height : CGFloat){
@@ -47,3 +49,29 @@ extension UIView {
     }
     
 }
+
+// UIViewController Extension
+
+extension UIViewController {
+    class func displaySpinner(onView : UIView) -> UIView {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+    class func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
+}
+

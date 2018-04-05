@@ -85,12 +85,10 @@ class SignupViewController : UIViewController {
             return
         }
         
-        // create user i.e signup using firebase
-        print(email)
-       
+        let indicator = UIViewController.displaySpinner(onView: self.view)
         // create user i.e signup using firebase
         Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
-            
+            UIViewController.removeSpinner(spinner: indicator)
             if let err = error{
                 print("Failed to create user:",err)
                 return

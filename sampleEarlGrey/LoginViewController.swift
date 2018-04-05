@@ -103,8 +103,13 @@ class LoginViewController : UIViewController {
         guard let password = passwordTextField.text else { return }
         
         print("handle login")
+        
+        let indicator = UIViewController.displaySpinner(onView: self.view)
     
         Auth.auth().signIn(withEmail: email, password: password) { (user, err) in
+            
+            UIViewController.removeSpinner(spinner: indicator)
+            
             if let err = err {
                 print("Failed to Sign in with email:",err)
                 return
