@@ -112,12 +112,13 @@ class LoginViewController : UIViewController {
             
             if let err = err {
                 print("Failed to Sign in with email:",err)
+                self.showError(errorDescription: err.localizedDescription)
                 return
             }
             print("Successfully authenticated user:", user?.uid ?? "")
-            
-            /* After user logged out successfully and logged in using other user credentials. UI shows previous user details. This problem is called UI Bad State. This can be solved by resetting UI. */
-            
+     
+            // Dismiss login controller
+            self.dismiss(animated: true, completion: nil)     
         }
     }
     
@@ -153,5 +154,13 @@ class LoginViewController : UIViewController {
         view.addSubview(stackView)
         stackView.anchor(top: logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 140)
         
+    }
+    
+    fileprivate func showError(errorDescription:String){
+   
+            let alertController = UIAlertController(title: "Alert", message: errorDescription, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+      
     }
 }

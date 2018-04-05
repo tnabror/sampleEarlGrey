@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow()
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
         return true
     }

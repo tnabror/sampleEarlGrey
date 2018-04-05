@@ -91,10 +91,13 @@ class SignupViewController : UIViewController {
             UIViewController.removeSpinner(spinner: indicator)
             if let err = error{
                 print("Failed to create user:",err)
+                self.showError(errorDescription: err.localizedDescription)
                 return
             }
             print("Successfully created user:",user?.uid ?? "")
-
+            
+            // Dismiss login controller
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -144,6 +147,14 @@ class SignupViewController : UIViewController {
         view.addSubview(stackView)
         
         stackView.anchor(top: logoContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 40, paddingBottom: 0, paddingRight: 40,width: 0,height: 140)
+        
+    }
+    
+    fileprivate func showError(errorDescription:String){
+        
+        let alertController = UIAlertController(title: "Alert", message: errorDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
         
     }
     
