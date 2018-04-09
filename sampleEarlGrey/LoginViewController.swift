@@ -21,6 +21,8 @@ class LoginViewController : UIViewController {
         
         button.setAttributedTitle(attributeTitile, for: .normal)
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.isAccessibilityElement = true
+        button.accessibilityIdentifier = "SignupScreen"
         return button
     }()
     
@@ -46,6 +48,8 @@ class LoginViewController : UIViewController {
     
     let emailTextField: UITextField = {
         let tf = UITextField()
+        tf.isAccessibilityElement = true
+        tf.accessibilityIdentifier = "EmailTextField"
         tf.placeholder = "Email"
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
@@ -58,6 +62,8 @@ class LoginViewController : UIViewController {
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
+        tf.isAccessibilityElement = true
+        tf.accessibilityIdentifier = "PasswordTextField"
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
@@ -89,6 +95,8 @@ class LoginViewController : UIViewController {
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
+        button.isAccessibilityElement = true
+        button.accessibilityIdentifier = "LoginButton"
         
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         

@@ -22,14 +22,73 @@ class sampleEarlGreyTests: XCTestCase {
     }
 
     
-    func testPresenceOfKeyWindow() {
-        EarlGrey.selectElement(with: grey_keyWindow()).assert(grey_sufficientlyVisible())
+    func testEmailTextField(){
+  EarlGrey.selectElement(with:grey_accessibilityID("EmailTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "Enter your Email")).assert(grey_text("Enter your Email"))
+      
     }
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPasswordTextField(){
+    EarlGrey.selectElement(with:grey_accessibilityID("PasswordTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "Enter your Password")).assert(grey_text("Enter your Password"))
+    }
+    
+    func testLoginWithCredentials(){
+
+    EarlGrey.selectElement(with:grey_accessibilityID("EmailTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "testuser@gmail.com"))
+
+    EarlGrey.selectElement(with:grey_accessibilityID("PasswordTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "abc123"))
+        
+        EarlGrey.selectElement(with: GREYMatchers.matcher(forButtonTitle: "Login")).perform(grey_tap())
+        
+        EarlGrey.selectElement(with: grey_accessibilityID("settings")).perform(grey_tap())
+        
+        EarlGrey.selectElement(with: grey_text("Logout")).perform(grey_tap())
+        
+        EarlGrey.selectElement(with: grey_text("Login")).assert(grey_sufficientlyVisible())
+        
+    }
+    
+    func testLoginWithWrongPassword(){
+        
+    EarlGrey.selectElement(with:grey_accessibilityID("EmailTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "testuser@gmail.com"))
+        
+    EarlGrey.selectElement(with:grey_accessibilityID("PasswordTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "wrongpassword"))
+        
+        EarlGrey.selectElement(with: GREYMatchers.matcher(forButtonTitle: "Login")).perform(grey_tap())
+        
+        EarlGrey.selectElement(with: grey_text("OK")).perform(grey_tap())
+
+    }
+    
+    func testNavigatingToSignupScreen(){
+   
+        EarlGrey.selectElement(with: grey_accessibilityID("SignupScreen")).perform(grey_tap())
+        EarlGrey.selectElement(with: grey_accessibilityID("SignupButton")).assert(grey_sufficientlyVisible())
+
+    EarlGrey.selectElement(with:grey_accessibilityID("SignupEmailTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "Enter your Email")).assert(grey_text("Enter your Email"))
+        
+    EarlGrey.selectElement(with:grey_accessibilityID("SignupPasswordTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "Enter your Password")).assert(grey_text("Enter your Password"))
+        
+        EarlGrey.selectElement(with: grey_accessibilityID("LoginScreen")).perform(grey_tap())
+        EarlGrey.selectElement(with: grey_accessibilityID("LoginButton")).assert(grey_sufficientlyVisible())
+
+    }
+    
+    func testSignUpWithBadInputData(){
+        
+        EarlGrey.selectElement(with: grey_accessibilityID("SignupScreen")).perform(grey_tap())
+        EarlGrey.selectElement(with: grey_accessibilityID("SignupButton")).assert(grey_sufficientlyVisible())
+ 
+ EarlGrey.selectElement(with:grey_accessibilityID("SignupEmailTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "sampleuser"))
+  EarlGrey.selectElement(with:grey_accessibilityID("SignupPasswordTextField")).perform(GREYActions.actionForClearText()).perform(GREYActions.action(forTypeText: "abc123"))
+        
+    EarlGrey.selectElement(with: grey_accessibilityID("SignupButton")).perform(grey_tap())
+        
+    EarlGrey.selectElement(with: grey_text("OK")).perform(grey_tap())
+    
+    EarlGrey.selectElement(with: grey_accessibilityID("LoginScreen")).perform(grey_tap())
+    EarlGrey.selectElement(with: grey_accessibilityID("LoginButton")).assert(grey_sufficientlyVisible())
+        
     }
     
 }
+			

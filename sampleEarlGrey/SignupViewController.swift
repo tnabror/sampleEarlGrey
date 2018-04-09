@@ -32,7 +32,8 @@ class SignupViewController : UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
-        
+        textField.isAccessibilityElement = true
+        textField.accessibilityIdentifier = "SignupEmailTextField"
         textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         
         return textField
@@ -45,7 +46,8 @@ class SignupViewController : UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
-        
+        textField.isAccessibilityElement = true
+        textField.accessibilityIdentifier = "SignupPasswordTextField"
         textField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
         return textField
     }()
@@ -60,6 +62,9 @@ class SignupViewController : UIViewController {
         
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         button.isEnabled = false
+        
+        button.isAccessibilityElement = true
+        button.accessibilityIdentifier = "SignupButton"
         return button
     }()
     
@@ -110,7 +115,8 @@ class SignupViewController : UIViewController {
             ]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
-        
+        button.isAccessibilityElement = true
+        button.accessibilityIdentifier = "LoginScreen"
         button.addTarget(self, action: #selector(handleAlreadyHaveAccount), for: .touchUpInside)
         return button
     }()

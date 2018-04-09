@@ -31,13 +31,15 @@ class HomeViewController : UIViewController {
     fileprivate func setupLogOutButton(){
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: #selector(handleLogOut))
+        navigationItem.rightBarButtonItem?.isAccessibilityElement = true
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "settings"
     }
     
     @objc func handleLogOut(){
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alertController.addAction(UIAlertAction(title: "Log Out", style: UIAlertActionStyle.destructive, handler: { (_) in
+        let logoutAction = UIAlertAction(title: "Logout", style: UIAlertActionStyle.destructive, handler: { (_) in
             
             do{
                 try Auth.auth().signOut()
@@ -52,9 +54,12 @@ class HomeViewController : UIViewController {
                 print("signOut Error:",signOutError)
             }
             
-        }))
+        })
+       
+        let cancelLogoutAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelLogoutAction)
         
         present(alertController, animated: true, completion: nil)
     }
